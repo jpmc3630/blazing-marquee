@@ -69,10 +69,10 @@ io.sockets.on('connection', function(socket) {
     console.log('message: ' + message)
     console.log('color: ' + color)
 
-    let data = {
-      messsage: message,
-      color: color
-    }
+    let data = [
+      message,
+      color
+    ]
 
     socket.to(screenObject.socket).emit('startMessage', data)
     
