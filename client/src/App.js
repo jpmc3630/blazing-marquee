@@ -98,7 +98,8 @@ class App extends Component {
           // roomName: this.state.roomToJoin, 
           message: this.state.message,
           color: this.hexTorgb(this.state.color),
-          colorTwo: this.hexTorgb(this.state.colorTwo)
+          colorOutline: this.hexTorgb(this.state.colorOutline),
+          bgColor: this.hexTorgb(this.state.bgColor)
         });
       } else {
         alert('Spit it out')
