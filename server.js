@@ -63,16 +63,15 @@ io.sockets.on('connection', function(socket) {
   });
 
   // join room, for joiners
-  socket.on('submitMessage', function({ message, color }) {
+  socket.on('submitMessage', function(data) {
     
-    // console.log('client join room message recieved:' + roomName)
-    console.log('message: ' + message)
-    console.log('color: ' + color)
 
-    socket.to(screenObject.socket).emit('startMessage', {
-      messsage: message,
-      color: color
-    })
+    // console.log('message: ' + message)
+    // console.log('color: ' + color)
+
+
+
+    socket.to(screenObject.socket).emit('startMessage', data)
     
   });
 
