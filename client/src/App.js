@@ -148,15 +148,11 @@ class App extends Component {
               <div>
               <h4 class="heading-label">~ The BS Pager ~</h4>
       
-                  <form className="form-horizontal">
-                    <div className="form-group">
-                        <div className="col-1 col-ml-auto">
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
-                        </div>
-                        <div className="col-3 col-mr-auto">
-                          <div className="col-1 col-ml-auto">
+
+                          
                             <label className="form-label" htmlFor="message">Message</label>
-                        </div>
+                        
                             <textarea className="form-input"
                                 rows="3"
                                 id="message"
@@ -187,20 +183,16 @@ class App extends Component {
                         <br></br>
                         <input type="range" min="-10" max="10" step="1"id="spacing" className="slider" name="spacing" onChange={this.handleChange} value={this.state.spacing}></input>
                         
-
-
-                        </div>
-                    </div>
+                        
                     
-                    <div className="form-group ">
                         <div className="col-7"></div>
                         <br></br>
                         <button
                             className="btn synthToolButton col-1 col-mr-auto"
                             onClick={this.handleSubmit}
                             type="submit">Send message</button>
-                    </div>
-                  </form>
+                    
+                  
                 </div>
           )
 
