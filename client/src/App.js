@@ -62,7 +62,16 @@ class App extends Component {
       this.setState({ statusArr: [], conToHost: false, status: 'The host has stopped hosting!' });
     })
    
-  
+    // gemerate random hex colours
+    this.setState({
+      color: randomColor(),
+      colorOutline: randomColor()
+    })
+
+  }
+
+  randomColor() {
+    return "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
   }
 
   componentWillUnmount() {
@@ -154,7 +163,8 @@ class App extends Component {
                         <input type="color" id="favcolor" className="colorPicker" name="color" onChange={this.handleChange} value={this.state.color}></input>
                         <br></br>
                         <label htmlFor="colorOutline">Outline Color:</label>
-                        <input type="color" id="colorOutline" className="colorPicker" name="colorOutline" onChange={this.handleChange} value={this.state.colorTwo}></input>
+                        <br></br>
+                        <input type="color" id="colorOutline" className="colorPicker" name="colorOutline" onChange={this.handleChange} value={this.state.colorOutline}></input>
                         </div>
                     </div>
                     
