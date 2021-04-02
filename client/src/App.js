@@ -20,6 +20,7 @@ class App extends Component {
       roomToJoin: null,
       username: null,
       color: '#7c1313',
+      colorOutline: '#7c1313',
       statusArr: [],
       conToHost: false,
       conToServer: false,
@@ -83,7 +84,8 @@ class App extends Component {
         socket.emit('submitMessage', {
           // roomName: this.state.roomToJoin, 
           message: this.state.message,
-          color: this.hexTorgb(this.state.color)
+          color: this.hexTorgb(this.state.color),
+          colorTwo: this.hexTorgb(this.state.colorTwo)
         });
       } else {
         alert('Spit it out')
@@ -150,6 +152,9 @@ class App extends Component {
                           <label htmlFor="favcolor">Color:</label>
                           <br></br>
                         <input type="color" id="favcolor" className="colorPicker" name="color" onChange={this.handleChange} value={this.state.color}></input>
+                        <br></br>
+                        <label htmlFor="colorOutline">Outline Color:</label>
+                        <input type="color" id="colorOutline" className="colorPicker" name="colorOutline" onChange={this.handleChange} value={this.state.colorTwo}></input>
                         </div>
                     </div>
                     

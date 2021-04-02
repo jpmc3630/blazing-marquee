@@ -63,7 +63,7 @@ io.sockets.on('connection', function(socket) {
   });
 
   // join room, for joiners
-  socket.on('submitMessage', function({ message, color }) {
+  socket.on('submitMessage', function({ message, color, colorOutline }) {
     
     // console.log('client join room message recieved:' + roomName)
     console.log('message: ' + message)
@@ -71,7 +71,8 @@ io.sockets.on('connection', function(socket) {
 
     let data = [
       message,
-      color
+      color,
+      colorOutline
     ]
 
     socket.to(screenObject.socket).emit('startMessage', data)
