@@ -22,6 +22,8 @@ class App extends Component {
       color: '#7c1313',
       colorOutline: '#7c1313',
       bgColor: '#000000',
+      speed: "0.3",
+      spacing: "-1",
       statusArr: [],
       conToHost: false,
       conToServer: false,
@@ -99,7 +101,9 @@ class App extends Component {
           message: this.state.message,
           color: this.hexTorgb(this.state.color),
           colorOutline: this.hexTorgb(this.state.colorOutline),
-          bgColor: this.hexTorgb(this.state.bgColor)
+          bgColor: this.hexTorgb(this.state.bgColor),
+          speed: this.state.speed,
+          spacing: this.state.spacing
         });
       } else {
         alert('Spit it out')
@@ -174,7 +178,17 @@ class App extends Component {
                         <label htmlFor="bgColor">Background:</label>
                         <br></br>
                         <input type="color" id="bgColor" className="colorPicker" name="bgColor" onChange={this.handleChange} value={this.state.bgColor}></input>
+                        <br></br>
+                        <label htmlFor="speed">Speed:</label>
+                        <br></br>
+                        <input type="range" min="0.1" max="10" step="0.1" id="speed" className="slider" name="speed" onChange={this.handleChange} value={this.state.speed}></input>
+                        <br></br>
+                        <label htmlFor="spacing">Letter spacing:</label>
+                        <br></br>
+                        <input type="range" min="-10" max="10" step="1"id="spacing" className="slider" name="spacing" onChange={this.handleChange} value={this.state.spacing}></input>
                         
+
+
                         </div>
                     </div>
                     
