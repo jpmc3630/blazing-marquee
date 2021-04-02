@@ -21,6 +21,7 @@ class App extends Component {
       username: null,
       color: '#7c1313',
       colorOutline: '#7c1313',
+      bgColor: '#000000',
       statusArr: [],
       conToHost: false,
       conToServer: false,
@@ -63,15 +64,18 @@ class App extends Component {
     })
    
     // gemerate random hex colours
-    this.setState({
-      color: randomColor(),
-      colorOutline: randomColor()
-    })
+    this.randomiseColors()
 
   }
 
-  randomColor() {
-    return "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+  randomiseColors() {
+    var randomColor = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+    var randomColor2 = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+    
+    this.setState({
+      color: randomColor,
+      colorOutline: randomColor2
+    })
   }
 
   componentWillUnmount() {
@@ -165,6 +169,11 @@ class App extends Component {
                         <label htmlFor="colorOutline">Outline Color:</label>
                         <br></br>
                         <input type="color" id="colorOutline" className="colorPicker" name="colorOutline" onChange={this.handleChange} value={this.state.colorOutline}></input>
+                        <br></br>
+                        <label htmlFor="bgColor">Background:</label>
+                        <br></br>
+                        <input type="color" id="bgColor" className="colorPicker" name="bgColor" onChange={this.handleChange} value={this.state.bgColor}></input>
+                        
                         </div>
                     </div>
                     
