@@ -32,6 +32,9 @@ const server = app.listen(PORT, () => {
 var io = require('socket.io')(server, {
   cors: {
     origin: '*',
+    transports: ['websocket'],
+    pingInterval: 10000,
+    pingTimeout: 10000,
   }
 });
 
