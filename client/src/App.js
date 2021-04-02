@@ -146,7 +146,7 @@ class App extends Component {
             return (
       
               <div>
-              <h4>~ The BS Pager ~</h4>
+              <h4 class="heading-label">~ The BS Pager ~</h4>
       
                   <form className="form-horizontal">
                     <div className="form-group">
