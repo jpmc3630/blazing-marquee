@@ -136,7 +136,7 @@ class App extends Component {
     return (
       
       <div className="App">
-        <div className="container">
+        
 
 
         {(() => {
@@ -145,29 +145,28 @@ class App extends Component {
           case 'lobby':
             return (
       
-              <div>
+              <div className="container">
               <h4 class="heading-label">~ The BS Pager ~</h4>
       
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
-
+                            <br></br>
                           
-                            <label className="form-label" htmlFor="message">Message</label>
-                        
+                            
                             <textarea className="form-input"
                                 rows="3"
                                 id="message"
                                 name="message"
-                                placeholder="Message"
+                                placeholder="Write your message . . ."
                                 value={this.state.message}
                                 onChange={this.handleChange}
                             />
                           <br></br>
                           <br></br>
-                          <label htmlFor="favcolor">Color</label>
+                          <label htmlFor="favcolor">Text</label>
                           <br></br>
                         <input type="color" id="favcolor" className="colorPicker" name="color" onChange={this.handleChange} value={this.state.color}></input>
                         <br></br>
-                        <label htmlFor="colorOutline">Outline Color</label>
+                        <label htmlFor="colorOutline">Outline</label>
                         <br></br>
                         <input type="color" id="colorOutline" className="colorPicker" name="colorOutline" onChange={this.handleChange} value={this.state.colorOutline}></input>
                         <br></br>
@@ -224,7 +223,7 @@ class App extends Component {
           
         </div>
 
-      </div>
+      
     )
   }
 }
