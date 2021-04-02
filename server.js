@@ -26,15 +26,14 @@ const server = app.listen(PORT, () => {
 });
 
 
-
-
 // set up socket.io from our express connection
 var io = require('socket.io')(server, {
   cors: {
     origin: '*',
-    transports: ['websocket'],
-    pingInterval: 10000,
-    pingTimeout: 10000,
+    // transports: ['websocket'],
+    pingInterval: 25000,
+    pingTimeout: 5000,
+    transports:["polling", "websocket"]
   }
 });
 
@@ -44,21 +43,13 @@ let screenObject = {};
 io.sockets.on('connection', function(socket) {
   
   console.log(socket.id)
-  // sorting out room creation for hosts ... 
-  // once a client has connected, we expect to get a ping from them saying what room they want to join
+
   socket.on('screenConnect', function(data) {
-      // if (data === 'create') {
-      //     let roomName = 'the-room'
-        
-      //     socket.join(roomName)
-      //     console.log('room message recieved:' + roomName)
-          
+
           screenObject = {
             socket: socket.id,
           }
 
-          // io.sockets.emit('getHosts', hostsArr)
-          // io.sockets.in(roomName).emit('room', { roomName })
           console.log('Screen has connected')
           console.log('Screen object is:')
           console.log(JSON.stringify(screenObject, null, 4))
@@ -87,21 +78,26 @@ io.sockets.on('connection', function(socket) {
 
 
 
-// socket.on('removeHost', function() {
-//   console.log('Screen removeHost');
-// });
-
-
-  // on DISCONNECT or CLOSE TAB remove host from hosts list
-  socket.on('disconnect', function(reason) {
+  // socket.on('disconnect', function(reason) {
     
-    screenObject = {}
+  //   screenObject = {}
 
-      console.log('Screen object after disconnect:')
-      console.log(JSON.stringify(screenObject, null, 4))
+  //     console.log('Screen object after disconnect:')
+  //     console.log(JSON.stringify(screenObject, null, 4))
 
-  });
+  // });
 
+
+ // heartbeat thing to try?
+  // socket.on('pong', function(data){
+  //   console.log("Pong received from client");
+  // });
+  // setTimeout(sendHeartbeat, 20000);
+
+  // function sendHeartbeat(){
+  //     setTimeout(sendHeartbeat, 20000);
+  //     io.sockets.emit('ping', { beat : 1 });
+  // }
 
 });
 
