@@ -2,7 +2,8 @@
   flex: 1;
   text-align: center;
   position: absolute;
-  background-color: skyblue;
+  color: lightgray;
+  background-color: black;
   height: 100%;
   width: 100%;
   justify-content: center;
@@ -10,8 +11,10 @@
 }
 
 .container {
-  font-size: 16px;
+  font-size: 0.875rem;
   position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 /* .button {
@@ -28,5 +31,27 @@
 } */
 
 .colorPicker {
-  width: 100px;
+  height: 0.75rem;
+  width: 80%;
+}
+
+.status-label {
+  font-size: .5rem;
+  color: darkgreenl;
+}
+
+.form-label {
+  font-size: 	0.75rem;
+}
+
+.colorPicker {
+  width: 80%;
+}
+
+.slider {
+  width: 80%;
+} 
+
+.form-input {
+  width: 80%;
 }

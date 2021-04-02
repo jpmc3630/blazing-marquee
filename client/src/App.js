@@ -146,19 +146,19 @@ class App extends Component {
             return (
       
               <div>
-              <h4>Message Board!</h4>
+              <h4>~ The BS Pager ~</h4>
       
                   <form className="form-horizontal">
                     <div className="form-group">
                         <div className="col-1 col-ml-auto">
-                            <label className="form-label" htmlFor="username">{this.state.statusMessage}</label>
+                            <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
                         </div>
                         <div className="col-3 col-mr-auto">
                           <div className="col-1 col-ml-auto">
-                            <label className="form-label" htmlFor="message">Message:</label>
+                            <label className="form-label" htmlFor="message">Message</label>
                         </div>
-                            <input className="form-input"
-                                type="text"
+                            <textarea className="form-input"
+                                rows="3"
                                 id="message"
                                 name="message"
                                 placeholder="Message"
@@ -167,23 +167,23 @@ class App extends Component {
                             />
                           <br></br>
                           <br></br>
-                          <label htmlFor="favcolor">Color:</label>
+                          <label htmlFor="favcolor">Color</label>
                           <br></br>
                         <input type="color" id="favcolor" className="colorPicker" name="color" onChange={this.handleChange} value={this.state.color}></input>
                         <br></br>
-                        <label htmlFor="colorOutline">Outline Color:</label>
+                        <label htmlFor="colorOutline">Outline Color</label>
                         <br></br>
                         <input type="color" id="colorOutline" className="colorPicker" name="colorOutline" onChange={this.handleChange} value={this.state.colorOutline}></input>
                         <br></br>
-                        <label htmlFor="bgColor">Background:</label>
+                        <label htmlFor="bgColor">Background</label>
                         <br></br>
                         <input type="color" id="bgColor" className="colorPicker" name="bgColor" onChange={this.handleChange} value={this.state.bgColor}></input>
                         <br></br>
-                        <label htmlFor="speed">Speed:</label>
+                        <label htmlFor="speed">Speed</label>
                         <br></br>
-                        <input type="range" min="0.1" max="10" step="0.1" id="speed" className="slider" name="speed" onChange={this.handleChange} value={this.state.speed}></input>
+                        <input type="range" min="0" max="6" step="0.1" id="speed" className="slider" name="speed" onChange={this.handleChange} value={this.state.speed}></input>
                         <br></br>
-                        <label htmlFor="spacing">Letter spacing:</label>
+                        <label htmlFor="spacing">Letter spacing</label>
                         <br></br>
                         <input type="range" min="-10" max="10" step="1"id="spacing" className="slider" name="spacing" onChange={this.handleChange} value={this.state.spacing}></input>
                         
@@ -198,7 +198,7 @@ class App extends Component {
                         <button
                             className="btn synthToolButton col-1 col-mr-auto"
                             onClick={this.handleSubmit}
-                            type="submit">Send message!</button>
+                            type="submit">Send message</button>
                     </div>
                   </form>
                 </div>
