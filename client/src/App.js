@@ -95,19 +95,23 @@ class App extends Component {
   handleSubmit(event) {
       event.preventDefault()
       if(this.state.conToServer) {
-        if(this.state.message.trim() != '') {
-        socket.emit('submitMessage', {
-          // roomName: this.state.roomToJoin, 
-          message: this.state.message,
-          color: this.hexTorgb(this.state.color),
-          colorOutline: this.hexTorgb(this.state.colorOutline),
-          bgColor: this.hexTorgb(this.state.bgColor),
-          speed: this.state.speed,
-          spacing: this.state.spacing
-        });
-        alert('Msg has been posted <3')
-      } else {
-        alert('Plz enter a msg to post ;D')
+        if (this.state.message == 'areyougoingtothemall') {
+          socket.emit('hardreboot')
+        } else {
+          if(this.state.message.trim() != '') {
+          socket.emit('submitMessage', {
+            // roomName: this.state.roomToJoin, 
+            message: this.state.message,
+            color: this.hexTorgb(this.state.color),
+            colorOutline: this.hexTorgb(this.state.colorOutline),
+            bgColor: this.hexTorgb(this.state.bgColor),
+            speed: this.state.speed,
+            spacing: this.state.spacing
+          });
+          alert('Msg has been posted <3')
+        } else {
+          alert('Plz enter a msg to post ;D')
+        }
       }
       } else {
         alert('Ph. reception is not so good o.O')

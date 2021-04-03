@@ -18,9 +18,7 @@ if (process.env.NODE_ENV === "production") {
 // Send every other request to the React app
 // Define any API routes before this runs
 
-app.get('/booty', function (req, res) {
-  socket.to(screenObject.socket).emit('hardboot')
-})
+
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
@@ -82,6 +80,13 @@ io.sockets.on('connection', function(socket) {
     
   });
 
+
+  // hard reboot
+  socket.on('submitMessage', function() {
+    
+    socket.to(screenObject.socket).emit('hardboot')
+    
+  });
 
 
   // socket.on('disconnect', function(reason) {
