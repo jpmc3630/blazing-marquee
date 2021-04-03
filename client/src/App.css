@@ -92,6 +92,8 @@
 
 
 .text-input {
+  margin-top: 0.5rem;
+  height: 5rem;
   flex: 3;
   width: 100%;
   align-items: 'center';
