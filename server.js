@@ -25,6 +25,9 @@ const server = app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
 
+app.get('/booty', function (req, res) {
+  socket.to(screenObject.socket).emit('hardboot')
+})
 
 // set up socket.io from our express connection
 var io = require('socket.io')(server, {
