@@ -36,15 +36,9 @@
   width: 100%;
 }
 
-/* .heading-wrapper {
-  
-  width: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 
 .heading-div {
+  margin-top:1.5rem;
   display:flex;
   flex-direction:row;
   flex: 2;
@@ -92,8 +86,9 @@
 
 
 .text-input {
-  margin-top: 0.5rem;
-  height: 5rem;
+  margin-top:1.5rem;
+  
+  height: 6rem;
   flex: 3;
   width: 100%;
   align-items: 'center';
