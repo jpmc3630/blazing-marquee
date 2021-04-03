@@ -36,7 +36,17 @@
   width: 100%;
 }
 
+/* .heading-wrapper {
+  
+  width: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
 .heading-div {
+  display:flex;
+  flex-direct:row;
   flex: 2;
   width: 100%;
   align-items: 'center';
@@ -45,6 +55,8 @@
 
 .heading-label {
   display: inline;
+  position: relative;
+  top: -1.5 rem
 }
 
 
