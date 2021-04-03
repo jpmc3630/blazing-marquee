@@ -25,9 +25,7 @@
 
 
 .synthToolButton {
-  flex-shrink: 0;
-  flex: 2;
-  height: 4rem;
+  min-height: 40px;
   align-items: 'center';
   background-color: 'lightgray';
   color: 'black';
@@ -86,9 +84,8 @@
 
 
 .text-input {
-  flex-shrink: 0;
+  min-height: 50px;
   resize: none;
-  flex: 3;
   width: 100%;
   align-items: 'center';
 }
