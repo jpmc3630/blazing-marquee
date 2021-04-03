@@ -43,7 +43,7 @@ class App extends Component {
       this.setState({
         conToServer: true,
         status: 'lobby',
-        statusMessage: 'Connected to server.'
+        statusMessage: 'Connected to server'
       })
     })
 
@@ -159,7 +159,7 @@ class App extends Component {
                           
                             
                             <textarea className="text-input"
-                                rows="3"
+                                rows="5"
                                 id="message"
                                 name="message"
                                 placeholder="Write your message . . ."

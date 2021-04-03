@@ -6,7 +6,7 @@
   right: 0;
   overflow: auto;
   background-color: lightgray;
-  color: darkgray;
+  color: rgb(97, 97, 97);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +46,9 @@
 
 
 .status-label {
-  flex: .5;
+  position: fixed;
+  top: 5px;
+  left: 5px;
   color: darkgreen;
   width: 100%;
   align-items: 'center';
