@@ -5,8 +5,8 @@
   bottom: 0;
   right: 0;
   overflow: auto;
-  background-color: lightgray;
-  color: rgb(97, 97, 97);
+  background-color: rgb(82, 82, 82);
+  color: lightgray
   display: flex;
   justify-content: center;
   align-items: center;
