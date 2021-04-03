@@ -46,7 +46,7 @@
 
 .heading-div {
   display:flex;
-  flex-direct:row;
+  flex-direction:row;
   flex: 2;
   width: 100%;
   align-items: 'center';
@@ -87,6 +87,7 @@
   width: 100%;
   margin-top:-.25rem;
   align-items: 'center';
+  border-width: 0px;
 }
 
 
