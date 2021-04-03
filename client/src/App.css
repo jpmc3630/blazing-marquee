@@ -39,7 +39,6 @@
 
 
 .heading-div {
-  margin-top:1.5rem;
   display:flex;
   flex-direction:row;
   flex: 2;
@@ -87,7 +86,6 @@
 
 
 .text-input {
-  margin-top:2rem;
   flex: 3;
   width: 100%;
   align-items: 'center';
