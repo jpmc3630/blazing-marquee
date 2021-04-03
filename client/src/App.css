@@ -6,7 +6,7 @@
   right: 0;
   overflow: auto;
   background-color: rgb(82, 82, 82);
-  color: lightgray
+  color: lightgray;
   display: flex;
   justify-content: center;
   align-items: center;
