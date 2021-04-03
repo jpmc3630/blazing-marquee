@@ -147,9 +147,9 @@ class App extends Component {
             return (
       
               <div className="container">
-              <div className="junior-container">
-              <img src="./flask.png"></img><h4 class="heading-label"> The bs pager </h4> <img src="./flask.png"></img>
-      
+                <div class="heading-div">
+                  <img src="./flask.png" class="flask"></img><h4 class="heading-label"> The bs pager </h4> <img class="flask" src="./flask.png"></img>
+                </div>
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
                             <br></br>
                           
@@ -194,7 +194,7 @@ class App extends Component {
                             type="submit">Send message</button>
                     
                   
-                </div>
+               
                 </div>
           )
 
