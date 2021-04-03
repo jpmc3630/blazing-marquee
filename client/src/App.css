@@ -5,13 +5,12 @@
   bottom: 0;
   right: 0;
   overflow: auto;
-  background-image: './bg.png';
-  color: lightgray;
+  background-color: lightgray;
+  color: darkgray;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 
 .container {
@@ -22,6 +21,7 @@
   display: flex;
   flex-direction: column;
   align-items: 'center';
+  background-image: './bg.png';
 }
 
 
@@ -81,4 +81,5 @@
 
 .flask {
   width: 2.5rem;
+  display: inline;
 }
