@@ -147,6 +147,7 @@ class App extends Component {
             return (
       
               <div className="container">
+              <div className="junior-container">
               <h2 class="heading-label">~ The BS Pager ~</h2>
       
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
@@ -163,23 +164,23 @@ class App extends Component {
                             />
                           <br></br>
                           <br></br>
-                          <label htmlFor="favcolor">Text</label>
+                          <label class="color-label" htmlFor="favcolor">Text</label>
                           <br></br>
                         <input type="color" id="favcolor" className="colorPicker" name="color" onChange={this.handleChange} value={this.state.color}></input>
                         <br></br>
-                        <label htmlFor="colorOutline">Outline</label>
+                        <label class="color-label" htmlFor="colorOutline">Outline</label>
                         <br></br>
                         <input type="color" id="colorOutline" className="colorPicker" name="colorOutline" onChange={this.handleChange} value={this.state.colorOutline}></input>
                         <br></br>
-                        <label htmlFor="bgColor">Background</label>
+                        <label class="color-label" htmlFor="bgColor">Background</label>
                         <br></br>
                         <input type="color" id="bgColor" className="colorPicker" name="bgColor" onChange={this.handleChange} value={this.state.bgColor}></input>
                         <br></br>
-                        <label htmlFor="speed">Speed</label>
+                        <label class="slider-label" htmlFor="speed">Speed</label>
                         <br></br>
                         <input type="range" min="0" max="6" step="0.1" id="speed" className="slider" name="speed" onChange={this.handleChange} value={this.state.speed}></input>
                         <br></br>
-                        <label htmlFor="spacing">Letter spacing</label>
+                        <label class="slider-label" htmlFor="spacing">Letter spacing</label>
                         <br></br>
                         <input type="range" min="-10" max="10" step="1"id="spacing" className="slider" name="spacing" onChange={this.handleChange} value={this.state.spacing}></input>
                         
@@ -193,6 +194,7 @@ class App extends Component {
                             type="submit">Send message</button>
                     
                   
+                </div>
                 </div>
           )
 

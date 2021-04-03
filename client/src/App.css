@@ -12,7 +12,7 @@
 
 .container {
   position: absolute;
-  margin: auto;
+  margin: 2rem;
   padding: 1.5 rem;
   height: 100%;
   width: 100%;
@@ -21,23 +21,32 @@
   align-items: 'center';
 }
 
+.junior-container {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 90%;
+  height: 90%;
+  align-items: 'center';
+}
+
 .synthToolButton {
   flex: 2;
-  margin: 1rem;
   align-items: 'center';
   background-color: 'lightgray';
   color: 'black';
-  padding: 10;
   border-color: 'lightgray';
   box-shadow: 5;
   border-width: 2;
   border-radius: 5;
-  width: 90%;
+  width: 100%;
 }
 
 .heading-label {
   flex: 2;
-  width: 90%;
+  width: 100%;
   align-items: 'center';
   justify-content: center;
   
@@ -46,27 +55,33 @@
 .status-label {
   flex: .5;
   color: darkgreen;
-  width: 90%;
+  width: 100%;
   align-items: 'center';
 }
 
-.form-label {
-  padding: 0.24rem;
-  font-size: 	0.75rem;
+.color-label {
   flex: 1;
-  width: 90%;
+  width: 100%;
+  align-items: 'center';
+}
+
+
+.slider-label {
+  flex: 1;
+  width: 100%;
   align-items: 'center';
 }
 
 .colorPicker, .slider {
   flex: 2;
-  width: 90%;
+  width: 100%;
+  margin-top:-.25rem;
   align-items: 'center';
 }
 
 
 .text-input {
   flex: 3;
-  width: 90%;
+  width: 100%;
   align-items: 'center';
 }
