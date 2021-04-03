@@ -140,7 +140,7 @@ class App extends Component {
     
     return (
       
-      <div className="App" style="background-image: url(./bg.png)">
+      <div className="App">
 
         {(() => {
         switch (this.state.status) {
@@ -150,7 +150,7 @@ class App extends Component {
       
               <div className="container">
                 <div class="heading-div">
-                  <img src="./flask.png" class="flask"></img><h3 class="heading-label"> ~ the bs pager ~ </h3> <img class="flask" src="./flask.png"></img>
+                  <img src="./flask.png" class="flask"></img><h3 class="heading-label">&nbspc;&nbspc;~&nbspc;&nbspc;T&nbspc;h&nbspc;e&nbspc;&nbspc;b&nbspc;s&nbspc;&nbspc;pager&nbspc;&nbspc;~&nbspc;&nbspc;</h3> <img class="flask" src="./flask.png"></img>
                 </div>
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
                             <br></br>
