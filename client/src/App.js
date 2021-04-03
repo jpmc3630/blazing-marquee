@@ -153,7 +153,7 @@ class App extends Component {
                             <br></br>
                           
                             
-                            <textarea className="form-input"
+                            <textarea className="text-input"
                                 rows="3"
                                 id="message"
                                 name="message"
