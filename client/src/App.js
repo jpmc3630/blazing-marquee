@@ -160,7 +160,7 @@ class App extends Component {
                                 rows="6"
                                 id="message"
                                 name="message"
-                                placeholder="Write your message . . ."
+                                placeholder="Write your message here o.O"
                                 value={this.state.message}
                                 onChange={this.handleChange}
                             />
