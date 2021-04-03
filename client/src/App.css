@@ -14,6 +14,7 @@
   font-size: 0.875rem;
   position: relative;
   margin: auto;
+  padding: 1.5 rem;
   height: 100%;
   width: 100%;
   display: flex;
@@ -31,12 +32,14 @@
   box-shadow: 5;
   border-width: 2;
   border-radius: 5;
+  width: 100%
 }
 
 .heading-label {
   flex-grow: 2;
   padding: 0.24rem;
   color: darkgreenl;
+  width: 100%
 }
 
 
@@ -44,25 +47,30 @@
   padding: 0.24rem;
   flex-grow: 1;
   color: darkgreenl;
+  width: 100%
 }
 
 .form-label {
   padding: 0.24rem;
   font-size: 	0.75rem;
   flex: 1;
+  width: 100%
 }
 
 .colorPicker {
   flex: 2;
   margin: 1rem;
+  width: 100%
 }
 
 .slider {
   flex: 1;
   margin: 1rem;
+  width: 100%
 } 
 
 .form-input {
   flex: 3;
   margin: 1rem;
+  width: 100%
 }
