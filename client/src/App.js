@@ -105,11 +105,12 @@ class App extends Component {
           speed: this.state.speed,
           spacing: this.state.spacing
         });
+        alert('Msg has been posted <3')
       } else {
-        alert('Spit it out')
+        alert('Plz enter a msg to post ;D')
       }
       } else {
-        alert('Reception is a bit shit, mate')
+        alert('Ph. reception is not so good o.O')
       }
   }
 
@@ -146,7 +147,7 @@ class App extends Component {
             return (
       
               <div className="container">
-              <h4 class="heading-label">~ The BS Pager ~</h4>
+              <h2 class="heading-label">~ The BS Pager ~</h2>
       
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
                             <br></br>
@@ -187,7 +188,7 @@ class App extends Component {
                         <div className="col-7"></div>
                         <br></br>
                         <button
-                            className="btn synthToolButton col-1 col-mr-auto"
+                            className="btn synthToolButton"
                             onClick={this.handleSubmit}
                             type="submit">Send message</button>
                     

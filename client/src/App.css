@@ -34,7 +34,7 @@
 } */
 
 .heading-label {
-  flex-grow: 1;
+  flex-grow: 2;
   padding: 0.24rem;
   color: darkgreenl;
 }
@@ -42,7 +42,7 @@
 
 .status-label {
   padding: 0.24rem;
-  flex-grow: 2;
+  flex-grow: 1;
   color: darkgreenl;
 }
 
@@ -54,15 +54,21 @@
 
 .colorPicker {
   flex: 2;
-  width: 80%;
+  margin: 1rem;
 }
 
 .slider {
   flex: 1;
-  width: 80%;
+  margin: 1rem;
 } 
 
 .form-input {
   flex: 3;
-  width: 80%;
+  margin: 1rem;
+}
+  
+.synthToolButton {
+  flex: 2;
+  margin: 1rem;
+  }
 }
