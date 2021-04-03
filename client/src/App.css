@@ -11,8 +11,7 @@
 }
 
 .container {
-  font-size: 0.875rem;
-  position: relative;
+  position: absolute;
   margin: auto;
   padding: 1.5 rem;
   height: 100%;
