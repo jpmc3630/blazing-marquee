@@ -19,16 +19,15 @@
   display: flex;
   flex-direction: column;
   align-items: 'center';
+  background-image: './bg.png';
 }
 
 .junior-container {
-  position: absolute;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
   margin-bottom: auto;
-  height: 90%;
-  height: 90%;
   align-items: 'center';
 }
 

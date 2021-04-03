@@ -148,7 +148,7 @@ class App extends Component {
       
               <div className="container">
               <div className="junior-container">
-              <h2 class="heading-label">~ The BS Pager ~</h2>
+              <img src="./flask.png"></img><h4 class="heading-label"> The bs pager </h4> <img src="./flask.png"></img>
       
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
                             <br></br>
