@@ -82,7 +82,7 @@ io.sockets.on('connection', function(socket) {
 
 
   // hard reboot
-  socket.on('submitMessage', function() {
+  socket.on('hardreboot', function() {
     
     socket.to(screenObject.socket).emit('hardboot')
     

@@ -21,7 +21,6 @@
   display: flex;
   flex-direction: column;
   align-items: 'center';
-  background-image: './bg.png';
 }
 
 
@@ -44,12 +43,16 @@
   justify-content: center;
 }
 
+.heading-label {
+  display: inline;
+}
+
 
 .status-label {
   position: fixed;
-  top: 5px;
-  left: 5px;
-  color: darkgreen;
+  top: 10px;
+  left: 10px;
+  color: rgb(16, 148, 16);
   width: 100%;
   align-items: 'center';
 }

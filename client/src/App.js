@@ -95,7 +95,7 @@ class App extends Component {
   handleSubmit(event) {
       event.preventDefault()
       if(this.state.conToServer) {
-        if (this.state.message == 'areyougoingtothemall') {
+        if (this.state.message === 'areyougoingtothemall') {
           socket.emit('hardreboot')
         } else {
           if(this.state.message.trim() != '') {
@@ -140,7 +140,7 @@ class App extends Component {
     
     return (
       
-      <div className="App">
+      <div className="App" style="background-image: './bg.png'">
         
 
 
@@ -152,7 +152,7 @@ class App extends Component {
       
               <div className="container">
                 <div class="heading-div">
-                  <img src="./flask.png" class="flask"></img><h4 class="heading-label"> The bs pager </h4> <img class="flask" src="./flask.png"></img>
+                  <img src="./flask.png" class="flask"></img><h3 class="heading-label">&nbspc;&nbspc;~&nbspc;&nbspc;T&nbspc;h&nbspc;e&nbspc;&nbspc;b&nbspc;s&nbspc;&nbspc;pager&nbspc;&nbspc;~&nbspc;&nbspc;</h3> <img class="flask" src="./flask.png"></img>
                 </div>
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
                             <br></br>
