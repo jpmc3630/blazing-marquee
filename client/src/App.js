@@ -140,9 +140,7 @@ class App extends Component {
     
     return (
       
-      <div className="App" style="background-image: './bg.png'">
-        
-
+      <div className="App" style="background-image: url(./bg.png)">
 
         {(() => {
         switch (this.state.status) {
