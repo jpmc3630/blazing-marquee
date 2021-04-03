@@ -87,4 +87,6 @@
 .flask {
   width: 2.5rem;
   display: inline;
+  padding-left: 10px;
+  padding-right: 10px;
 }
