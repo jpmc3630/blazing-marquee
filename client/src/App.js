@@ -155,7 +155,7 @@ class App extends Component {
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
                             <br></br>
                           
-                            
+                            <div class="text-div">
                             <textarea className="text-input"
                                 rows="6"
                                 id="message"
@@ -164,6 +164,7 @@ class App extends Component {
                                 value={this.state.message}
                                 onChange={this.handleChange}
                             />
+                            </div>
                           <br></br>
                           <br></br>
                           <label class="color-label" htmlFor="favcolor">Text</label>

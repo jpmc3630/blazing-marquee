@@ -85,11 +85,18 @@
 
 
 .text-input {
-  flex:1;
-  
+  min-height: 50px;
   width: 100%;
   align-items: 'center';
 }
+
+.text-div {
+  flex: 1;
+  width: 100%;
+  align-items: 'center';
+  justify-content: center;
+}
+
 
 .flask {
   flex:1;
