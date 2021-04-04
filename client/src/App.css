@@ -25,6 +25,7 @@
 
 
 .synthToolButton {
+  flex:1;
   min-height: 40px;
   align-items: 'center';
   background-color: 'lightgray';
@@ -75,7 +76,7 @@
 }
 
 .colorPicker, .slider {
-  flex: 2;
+  flex: 1;
   width: 100%;
   margin-top:-.25rem;
   align-items: 'center';
@@ -84,13 +85,14 @@
 
 
 .text-input {
-  min-height: 50px;
-  resize: none;
+  flex:1;
+  
   width: 100%;
   align-items: 'center';
 }
 
 .flask {
+  flex:1;
   width: 2.5rem;
   display: inline;
   padding-left: 10px;
