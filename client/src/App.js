@@ -183,7 +183,7 @@ class App extends Component {
                             </div>
                           <br></br>
                           <br></br>
-                          <label class="color-label" htmlFor="favcolor">Text</label>
+                          <label class="color-label" htmlFor="favcolor">Colour</label>
                           <br></br>
                         <input type="color" id="favcolor" className="colorPicker" name="color" onChange={this.handleChange} value={this.state.color}></input>
                         <br></br>
@@ -213,7 +213,7 @@ class App extends Component {
                             onClick={this.handleSubmit}
                             type="submit"
                             disabled={this.state.loading}>
-                              Post message!
+                              Send message
                         </button>
                         </div>
                   
