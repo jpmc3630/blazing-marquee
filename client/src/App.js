@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import LoadingOverlay from 'react-loading-overlay';
 import io from "socket.io-client";
 import "./App.css"
 import bgImage from "./bg.png"
@@ -30,7 +30,8 @@ class App extends Component {
       status: 'lobby',
       statusMessage: 'Searching for server...',
       answers: [],
-      message: ''
+      message: '',
+      loading: false
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -108,7 +109,11 @@ class App extends Component {
             speed: this.state.speed,
             spacing: this.state.spacing
           });
-          alert('Msg has been posted <3')
+          this.setState({loading: true })
+          setTimeout(() => {
+            this.setState({loading:false})
+          }, 1600);
+          // alert('Msg has been posted <3')
         } else {
           alert('Plz enter a msg to post ;D')
         }
@@ -149,6 +154,17 @@ class App extends Component {
             return (
       
               <div className="container">
+                { this.state.loading ? 
+                          <LoadingOverlay
+                            active={this.state.loading}
+                            spinner
+                            text='Msg posted <3'
+                            className='cover'
+                            >
+                            {/* <p>Some content or children or something.</p> */}
+                          </LoadingOverlay>    
+                   : null }
+
                 <div class="heading-div">
                   <img src="./flask.png" class="flask"></img><h3 class="heading-label"> ~ the bs pager ~ </h3> <img class="flask" src="./flask.png"></img>
                 </div>
@@ -195,7 +211,10 @@ class App extends Component {
                         <button
                             className="btn synthToolButton"
                             onClick={this.handleSubmit}
-                            type="submit">Send messagez</button>
+                            type="submit"
+                            disabled={this.state.loading}>
+                              Post message!
+                        </button>
                         </div>
                   
                
