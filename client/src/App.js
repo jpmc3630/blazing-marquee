@@ -197,7 +197,7 @@ class App extends Component {
                         <br></br>
                         <label class="slider-label" htmlFor="speed">Speed</label>
                         <br></br>
-                        <input type="range" min="1" max="10" step="0.1" id="speed" className="slider" name="speed" onChange={this.handleChange} value={this.state.speed}></input>
+                        <input type="range" min="1" max="8" step="0.1" id="speed" className="slider" name="speed" onChange={this.handleChange} value={this.state.speed}></input>
                         <br></br>
                         <label class="slider-label" htmlFor="spacing">Letter spacing</label>
                         <br></br>
