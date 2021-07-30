@@ -27,7 +27,9 @@
   position:fixed;
   top:0;
   left:0;
-  background:rgba(0,0,0,0.6);
+  opacity: 0.5; /* Standard compliant browsers */
+   -moz-opacity: 0.5; /* Firefox and Mozilla browsers */
+   -webkit-opacity: 0.5; /* WebKit browser e.g. Safari */
   z-index:5;
   width:100%;
   height:100%;
