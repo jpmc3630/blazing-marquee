@@ -173,7 +173,7 @@ class App extends Component {
                           
                             <div class="text-div">
                             <textarea className="text-input"
-                                rows="3"
+                                rows="2"
                                 id="message"
                                 name="message"
                                 placeholder="Write your message here o.O"
