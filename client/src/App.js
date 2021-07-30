@@ -191,11 +191,12 @@ class App extends Component {
                     
                         <div className="col-7"></div>
                         <br></br>
+                        <div className="text-div">
                         <button
                             className="btn synthToolButton"
                             onClick={this.handleSubmit}
-                            type="submit">Send message</button>
-                    
+                            type="submit">Send messagez</button>
+                        </div>
                   
                
                 </div>

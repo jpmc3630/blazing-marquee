@@ -25,8 +25,11 @@
 
 
 .synthToolButton {
+  -webkit-appearance: none;
+  /* min-height: fit-content; */
+  font-size:20px;
   flex:1;
-  min-height: 40px;
+  min-height: 50px;
   align-items: 'center';
   background-color: 'lightgray';
   color: 'black';
@@ -87,6 +90,7 @@
 
 
 .text-input {
+  font-size:20px;
   min-height: 40px;
   width: 100%;
   align-items: 'center';
