@@ -25,7 +25,7 @@
 
 
 .synthToolButton {
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   /* min-height: fit-content; */
   font-size:20px;
   flex:1;
