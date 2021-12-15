@@ -22,7 +22,7 @@ class App extends Component {
       color: '#7c1313',
       colorOutline: '#7c1313',
       bgColor: '#000000',
-      speed: "0.3",
+      speed: "1",
       spacing: "-1",
       statusArr: [],
       conToHost: false,
@@ -197,11 +197,11 @@ class App extends Component {
                         <br></br>
                         <label class="slider-label" htmlFor="speed">Speed</label>
                         <br></br>
-                        <input type="range" min="0" max="6" step="0.1" id="speed" className="slider" name="speed" onChange={this.handleChange} value={this.state.speed}></input>
+                        <input type="range" min="0.1" max="5" step="0.1" id="speed" className="slider" name="speed" onChange={this.handleChange} value={this.state.speed}></input>
                         <br></br>
                         <label class="slider-label" htmlFor="spacing">Letter spacing</label>
                         <br></br>
-                        <input type="range" min="-10" max="10" step="1"id="spacing" className="slider" name="spacing" onChange={this.handleChange} value={this.state.spacing}></input>
+                        <input type="range" min="-5" max="8" step="1"id="spacing" className="slider" name="spacing" onChange={this.handleChange} value={this.state.spacing}></input>
                         
                         
                     
