@@ -23,7 +23,7 @@ class App extends Component {
       colorOutline: '#7c1313',
       bgColor: '#000000',
       speed: "1",
-      spacing: "-1",
+      spacing: "1",
       statusArr: [],
       conToHost: false,
       conToServer: false,
