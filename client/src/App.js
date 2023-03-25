@@ -177,13 +177,13 @@ class App extends Component {
                           </LoadingOverlay>    
                    : null }
 
-                <div class="heading-div">
-                  <img src="./flask.png" class="flask" alt=""></img><h3 class="heading-label"> ~ the bs pager ~ </h3> <img class="flask" src="./flask.png" alt=""></img>
+                <div className="heading-div">
+                  <img src="./flask.png" className="flask" alt=""></img><h3 className="heading-label"> ~ the bs pager ~ </h3> <img className="flask" src="./flask.png" alt=""></img>
                 </div>
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
                             <br></br>
                           
-                            <div class="text-div">
+                            <div className="text-div">
                             <textarea className="text-input"
                                 rows="2"
                                 id="message"
@@ -195,23 +195,23 @@ class App extends Component {
                             </div>
                           <br></br>
                           <br></br>
-                          <label class="color-label" htmlFor="favcolor">Colour</label>
+                          <label className="color-label" htmlFor="favcolor">Colour</label>
                           <br></br>
                         <input type="color" id="favcolor" className="colorPicker" name="color" onChange={this.handleChange} value={this.state.color}></input>
                         <br></br>
-                        <label class="color-label" htmlFor="colorOutline">Outline</label>
+                        <label className="color-label" htmlFor="colorOutline">Outline</label>
                         <br></br>
                         <input type="color" id="colorOutline" className="colorPicker" name="colorOutline" onChange={this.handleChange} value={this.state.colorOutline}></input>
                         <br></br>
-                        <label class="color-label" htmlFor="bgColor">Background</label>
+                        <label className="color-label" htmlFor="bgColor">Background</label>
                         <br></br>
                         <input type="color" id="bgColor" className="colorPicker" name="bgColor" onChange={this.handleChange} value={this.state.bgColor}></input>
                         <br></br>
-                        <label class="slider-label" htmlFor="speed">Speed</label>
+                        <label className="slider-label" htmlFor="speed">Speed</label>
                         <br></br>
                         <input type="range" min="0.1" max="5" step="0.1" id="speed" className="slider" name="speed" onChange={this.handleChange} value={this.state.speed}></input>
                         <br></br>
-                        <label class="slider-label" htmlFor="spacing">Letter spacing</label>
+                        <label className="slider-label" htmlFor="spacing">Letter spacing</label>
                         <br></br>
                         <input type="range" min="-5" max="8" step="1"id="spacing" className="slider" name="spacing" onChange={this.handleChange} value={this.state.spacing}></input>
                         
