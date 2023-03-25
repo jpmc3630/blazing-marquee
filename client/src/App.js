@@ -28,7 +28,7 @@ class App extends Component {
       conToHost: false,
       conToServer: false,
       status: 'lobby',
-      statusMessage: 'Searching for server...',
+      statusMessage: 'Searching for screen...',
       answers: [],
       message: '',
       loading: false
