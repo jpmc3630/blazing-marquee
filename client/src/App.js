@@ -166,7 +166,6 @@ class App extends Component {
                                 position:'fixed',
                                 top:0,
                                 left:0,
-                                // backgroundColor: rgb(19, 19, 19),
                                 zIndex:5,
                                 width:'100%',
                                 height:'100%',
