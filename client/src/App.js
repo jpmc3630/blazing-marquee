@@ -44,7 +44,7 @@ class App extends Component {
       this.setState({
         conToServer: true,
         status: 'lobby',
-        statusMessage: 'Connected to server'
+        statusMessage: 'Connected to screen'
       })
     })
 
