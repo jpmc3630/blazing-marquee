@@ -55,7 +55,7 @@ class App extends Component {
         statusMessage: data.statusMessage
       })
 
-      if (data.status == 'question') {
+      if (data.status === 'question') {
         this.setState({
           answers: data.answers
         })
@@ -99,7 +99,7 @@ class App extends Component {
         if (this.state.message === 'rugoingtothemall') {
           socket.emit('hardreboot')
         } else {
-          if(this.state.message.trim() != '') {
+          if(this.state.message.trim() !== '') {
           socket.emit('submitMessage', {
             // roomName: this.state.roomToJoin, 
             message: this.state.message,
@@ -178,7 +178,7 @@ class App extends Component {
                    : null }
 
                 <div class="heading-div">
-                  <img src="./flask.png" class="flask"></img><h3 class="heading-label"> ~ the bs pager ~ </h3> <img class="flask" src="./flask.png"></img>
+                  <img src="./flask.png" class="flask" alt=""></img><h3 class="heading-label"> ~ the bs pager ~ </h3> <img class="flask" src="./flask.png" alt=""></img>
                 </div>
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
                             <br></br>
