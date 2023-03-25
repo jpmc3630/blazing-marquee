@@ -158,8 +158,20 @@ class App extends Component {
                           <LoadingOverlay
                             active={this.state.loading}
                             spinner
-                            text='Msg posted <3'
-                            className='cover'
+                            text='Posting message now... :D'
+                            styles={{
+                              overlay: (base) => ({
+                                ...base,
+                                background: 'rgba(19, 19, 19, 0.9)',
+                                position:'fixed',
+                                top:0,
+                                left:0,
+                                // backgroundColor: rgb(19, 19, 19),
+                                zIndex:5,
+                                width:'100%',
+                                height:'100%',
+                              })
+                            }}
                             >
                             {/* <p>Some content or children or something.</p> */}
                           </LoadingOverlay>    
@@ -213,7 +225,7 @@ class App extends Component {
                             onClick={this.handleSubmit}
                             type="submit"
                             disabled={this.state.loading}>
-                              Send message
+                              Post message
                         </button>
                         </div>
                   
