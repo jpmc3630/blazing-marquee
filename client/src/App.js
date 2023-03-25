@@ -96,7 +96,7 @@ class App extends Component {
   handleSubmit(event) {
       event.preventDefault()
       if(this.state.conToServer) {
-        if (this.state.message === 'areyougoingtothemall') {
+        if (this.state.message === 'rugoingtothemall') {
           socket.emit('hardreboot')
         } else {
           if(this.state.message.trim() != '') {
