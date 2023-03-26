@@ -8,7 +8,7 @@ ReactDOM.render(<App />, document.getElementById("root"));
 
 serviceWorker.register({
   onUpdate: registration => {
-    alert('New version available!  Ready to update?');
+    alert('Changes have been made to the app. The page will now refresh.');
     if (registration && registration.waiting) {
       registration.waiting.postMessage({ type: 'SKIP_WAITING' });
     }
