@@ -8,10 +8,14 @@ ReactDOM.render(<App />, document.getElementById("root"));
 
 serviceWorker.register({
   onUpdate: registration => {
-    alert('Changes have been made to the app. The page will now refresh.');
-    if (registration && registration.waiting) {
-      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-    }
-    window.location.reload();
+    // const ok = confirm('New version available. Press ok to reload!')
+    // if (ok) {
+      console.log('Reloading SW')
+      window.location.reload()
+      if (registration && registration.waiting) {
+        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      }
+      Promise.resolve().then(() => { window.location.reload(true); });
+    // }
   }
 });
