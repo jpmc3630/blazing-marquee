@@ -8,14 +8,9 @@ ReactDOM.render(<App />, document.getElementById("root"));
 
 window.onfocus = () => {
   console.log('The user is back to the page!')
-  // When the user comes back to the page, we want to make sure that the
-  // service worker is activated. This is because the service worker will
-  // stop running when the user closes the tab.
-  // We can use the `clients.claim()` method to activate the service worker
-  // immediately.
-  if (navigator.serviceWorker.controller) {
-    navigator.serviceWorker.controller.postMessage({ type: 'CLAIM_CLIENTS' });
-  }
+    navigator.serviceWorker
+    .getRegistrations()
+    .then((regs) => regs.forEach((reg) => reg.update()));
 };
 
 serviceWorker.register({
