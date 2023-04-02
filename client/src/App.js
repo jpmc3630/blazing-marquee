@@ -39,7 +39,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    
+    window.addEventListener("focus", this.onFocus)
+
     socket.on('connect', (socket) => {
       this.setState({
         conToServer: true,
@@ -69,6 +70,13 @@ class App extends Component {
     // gemerate random hex colours
     this.randomiseColors()
 
+  }
+
+  onFocus = () => {
+    console.log('The user is back to the page!')
+    navigator.serviceWorker
+    .getRegistrations()
+    .then((regs) => regs.forEach((reg) => reg.update()));
   }
 
   randomiseColors() {

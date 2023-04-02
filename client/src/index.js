@@ -6,13 +6,6 @@ import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
-window.onfocus = () => {
-  console.log('The user is back to the page!')
-    navigator.serviceWorker
-    .getRegistrations()
-    .then((regs) => regs.forEach((reg) => reg.update()));
-};
-
 serviceWorker.register({
   onUpdate: async registration => {
     // We want to run this code only if we detect a new service worker is
