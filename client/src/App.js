@@ -241,7 +241,7 @@ class App extends Component {
                             onClick={this.handleSubmit}
                             type="submit"
                             disabled={this.state.loading}>
-                              Post message!
+                              Post message
                         </button>
                         </div>
                   
