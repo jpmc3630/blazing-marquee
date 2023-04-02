@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import LoadingOverlay from 'react-loading-overlay';
 import io from "socket.io-client";
 import "./App.css"
-import bgImage from "./bg.png"
+// import bgImage from "./bg.png"
 let socket;
 if (process.env.NODE_ENV === 'development') {
   socket = io(`http://localhost:3001/`);
@@ -159,7 +159,10 @@ class App extends Component {
     
     return (
       
-      <div className="App" style={{ backgroundImage: 'url(' + bgImage + ')', backgroundSize: 'auto', backgroundPosition: '0 0' }}>
+      <div
+        className="App"
+        // style={{ backgroundImage: 'url(' + bgImage + ')', backgroundSize: 'auto', backgroundPosition: '0 0' }}
+      >
 
         {(() => {
         switch (this.state.status) {
