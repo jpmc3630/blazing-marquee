@@ -40,6 +40,8 @@ class App extends Component {
 
   componentDidMount() {
     document.addEventListener('visibilitychange', this.checkForUpdates)
+    document.addEventListener('blur', this.checkForUpdates)
+    window.addEventListener('blur', this.checkForUpdates)
     window.addEventListener('focus', this.checkForUpdates)
     document.addEventListener('focus', this.checkForUpdates)
 
@@ -95,9 +97,11 @@ class App extends Component {
     this.props.socket.emit('removeUser', {room: this.state.currentRoom, msg: `removeUser`});
     this.setState({ statusArr: [], conToHost: false });
 
-    document.removeEventListener('visibilitychange', this.checkForUpdates )
+    window.removeEventListener('blur', this.checkForUpdates)
+    document.removeEventListener('blur', this.checkForUpdates)
     window.removeEventListener('focus', this.checkForUpdates)
-    document.removeEventListener('focus', this.checkForUpdates )
+    document.removeEventListener('focus', this.checkForUpdates)
+    document.removeEventListener('visibilitychange', this.checkForUpdates)
   }
 
   handleChange(event) {
