@@ -214,7 +214,7 @@ class App extends Component {
                             />
                             </div>
                           <br></br>
-                          <br></br>
+                          {/* <br></br> */}
                           <label className="color-label" htmlFor="favcolor">Colour</label>
                           <br></br>
                         <input type="color" id="favcolor" className="colorPicker" name="color" onChange={this.handleChange} value={this.state.color}></input>
