@@ -39,7 +39,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener("focus", this.onFocus)
+    document.addEventListener('visibilitychange', checkForUpdates)
+    window.addEventListener('focus', checkForUpdates)
+    document.addEventListener('focus', checkForUpdates)
 
     socket.on('connect', (socket) => {
       this.setState({
@@ -72,7 +74,7 @@ class App extends Component {
 
   }
 
-  onFocus = () => {
+  checkForUpdates = () => {
     console.log('The user is back to the page!')
     navigator.serviceWorker
     .getRegistrations()
@@ -92,6 +94,10 @@ class App extends Component {
   componentWillUnmount() {
     this.props.socket.emit('removeUser', {room: this.state.currentRoom, msg: `removeUser`});
     this.setState({ statusArr: [], conToHost: false });
+
+    document.removeEventListener('visibilitychange', checkForUpdates )
+    window.removeEventListener('focus', checkForUpdates)
+    document.removeEventListener('focus', checkForUpdates )
   }
 
   handleChange(event) {
