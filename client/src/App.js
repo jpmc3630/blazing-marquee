@@ -39,9 +39,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('visibilitychange', checkForUpdates)
-    window.addEventListener('focus', checkForUpdates)
-    document.addEventListener('focus', checkForUpdates)
+    document.addEventListener('visibilitychange', this.checkForUpdates)
+    window.addEventListener('focus', this.checkForUpdates)
+    document.addEventListener('focus', this.checkForUpdates)
 
     socket.on('connect', (socket) => {
       this.setState({
@@ -95,9 +95,9 @@ class App extends Component {
     this.props.socket.emit('removeUser', {room: this.state.currentRoom, msg: `removeUser`});
     this.setState({ statusArr: [], conToHost: false });
 
-    document.removeEventListener('visibilitychange', checkForUpdates )
-    window.removeEventListener('focus', checkForUpdates)
-    document.removeEventListener('focus', checkForUpdates )
+    document.removeEventListener('visibilitychange', this.checkForUpdates )
+    window.removeEventListener('focus', this.checkForUpdates)
+    document.removeEventListener('focus', this.checkForUpdates )
   }
 
   handleChange(event) {
