@@ -86,10 +86,12 @@ class App extends Component {
   randomiseColors() {
     var randomColor = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
     var randomColor2 = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+    var randomColor3 = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
     
     this.setState({
       color: randomColor,
-      colorOutline: randomColor2
+      colorOutline: randomColor2,
+      bgColor: randomColor3
     })
   }
 
