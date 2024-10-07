@@ -200,7 +200,7 @@ class App extends Component {
                    : null }
 
                 <div className="heading-div">
-                  <img src="./flask.png" className="flask" alt=""></img><h3 className="heading-label"> ~ the bs pager ~ </h3> <img className="flask" src="./flask.png" alt=""></img>
+                  <img src="./flask.png" className="flask" alt=""></img><h3 className="heading-label"> ~ get fucked ya bozo ~ </h3> <img className="flask" src="./flask.png" alt=""></img>
                 </div>
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
                             <br></br>
