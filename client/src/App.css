@@ -176,6 +176,7 @@
   background-color: #f1f1f1;
   margin: 0 5px; /* Space between tabs */
   transition: background-color 0.3s;
+  color: gray;
 }
 
 /* Active tab style */

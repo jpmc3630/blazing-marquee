@@ -250,26 +250,26 @@ class App extends Component {
                         </div>
 
                           <br></br>                    
-{/* Add texture selection UI here */}
-{this.state.isTextureMode && (
-  <div className="texture-selection">
-    <div className="texture-grid">
-      {['01', '02', '03'].map((texture) => (
-        <div
-          key={texture}
-          className={`texture-item ${this.state.textureFile === texture ? 'selected' : ''}`}
-          onClick={() => this.setState({ textureFile: texture })}
-        >
-          <img
-            src={`./texture-thumbs/${texture}.gif`}
-            className="texture-thumbnail"
-            alt={texture}
-          />
-        </div>
-      ))}
-    </div>
-  </div>
-)}
+                          {/* Add texture selection UI here */}
+                          {this.state.isTextureMode && (
+                            <div className="texture-selection">
+                              <div className="texture-grid">
+                                {['01', '02', '03'].map((texture) => (
+                                  <div
+                                    key={texture}
+                                    className={`texture-item ${this.state.textureFile === texture ? 'selected' : ''}`}
+                                    onClick={() => this.setState({ textureFile: texture })}
+                                  >
+                                    <img
+                                      src={`./texture-thumbs/${texture}.gif`}
+                                      className="texture-thumbnail"
+                                      alt={texture}
+                                    />
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
 
                             </div>
 
