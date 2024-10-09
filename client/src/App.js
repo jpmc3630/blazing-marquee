@@ -258,7 +258,9 @@ class App extends Component {
       {/* Grid that contains all texture items */}
       <div className="texture-grid">
         {/* Generate an array of numbers from 1 to 126 */}
-        {Array.from({ length: 258 }, (_, i) => (i + 1).toString()).reverse().map((texture) => (
+        {Array.from({ length: 258 }, (_, i) => (i + 1).toString()).reverse()
+        .filter((texture) => !['231', '208', '205', '200', '178', '150', '149'].includes(texture)) // Filter out the dud textures!
+        .map((texture) => (
           <div
             key={texture}
             className={`texture-item ${this.state.textureFile === 'trippy' + texture ? 'selected' : ''}`}
@@ -275,6 +277,8 @@ class App extends Component {
     </div>
   </div>
 )}
+
+// 231, 208, 205, 200, 178, 150, 149
 
                             </div>
 
