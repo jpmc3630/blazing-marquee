@@ -262,7 +262,7 @@ class App extends Component {
                                     onClick={() => this.setState({ textureFile: texture })}
                                   >
                                     <img
-                                      src={`./texture-thumbs/gif${texture}.gif`}  {/* Use sequential naming like gif1.gif, gif2.gif */}
+                                      src={`./texture-thumbs/gif${texture}.gif`}
                                       className="texture-thumbnail"
                                       alt={`gif${texture}`}
                                     />
