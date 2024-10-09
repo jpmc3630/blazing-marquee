@@ -254,16 +254,17 @@ class App extends Component {
                           {this.state.isTextureMode && (
                             <div className="texture-selection">
                               <div className="texture-grid">
-                                {['01', '02', '03'].map((texture) => (
+                                {/* Generate an array of numbers from 1 to 126 */}
+                                {Array.from({ length: 126 }, (_, i) => (i + 1).toString()).map((texture) => (
                                   <div
                                     key={texture}
                                     className={`texture-item ${this.state.textureFile === texture ? 'selected' : ''}`}
                                     onClick={() => this.setState({ textureFile: texture })}
                                   >
                                     <img
-                                      src={`./texture-thumbs/${texture}.gif`}
+                                      src={`./texture-thumbs/gif${texture}.gif`}  {/* Use sequential naming like gif1.gif, gif2.gif */}
                                       className="texture-thumbnail"
-                                      alt={texture}
+                                      alt={`gif${texture}`}
                                     />
                                   </div>
                                 ))}
