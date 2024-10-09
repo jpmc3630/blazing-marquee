@@ -32,8 +32,8 @@ class App extends Component {
       answers: [],
       message: '',
       loading: false,
-      isTextureMode: false, // New state to track if in texture mode
-      textureFile: null // New state to store the selected texture file
+      isTextureMode: true,
+      textureFile: null
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
