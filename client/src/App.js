@@ -226,35 +226,56 @@ class App extends Component {
                 </div>
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
                             <br></br>
-                          
-                                {/* Add texture selection UI here */}
-                                {this.state.isTextureMode && (
-                                  <div className="texture-selection">
-                                    <h3>Select a Texture</h3>
-                                    <div className="texture-grid">
-                                      {['/textures/texture1.gif', '/textures/texture2.gif', '/textures/texture3.gif'].map((texture) => (
-                                        <img
-                                          key={texture}
-                                          src={texture}
-                                          className={`texture-thumbnail ${this.state.textureFile === texture ? 'selected' : ''}`}
-                                          alt="texture"
-                                          onClick={() => this.setState({ textureFile: texture })}
-                                        />
-                                      ))}
-                                    </div>
-                                  </div>
-                                )}
+
 
                           {/*  message input field */}
                             <div className="text-div">
-                            <button
-                              className="btn synthToolButton"
-                              onClick={() => this.setState({ isTextureMode: !this.state.isTextureMode })}
-                            >
-                              {this.state.isTextureMode ? 'Switch to Text Mode' : 'Play Textures'}
-                            </button>
+                            <div className="tab-container">
+                              
+                          {/* Tab for Message Mode */}
+                          <div
+                            className={`tab ${!this.state.isTextureMode ? 'active-tab' : ''}`}
+                            onClick={() => this.setState({ isTextureMode: false })}
+                          >
+                            Message Mode
+                          </div>
 
-                            <textarea className="text-input"
+                          {/* Tab for Texture Mode */}
+                          <div
+                            className={`tab ${this.state.isTextureMode ? 'active-tab' : ''}`}
+                            onClick={() => this.setState({ isTextureMode: true })}
+                          >
+                            Texture Mode
+                          </div>
+                        </div>
+
+                          <br></br>                    
+                            {/* Add texture selection UI here */}
+                            {this.state.isTextureMode && (
+                              <div className="texture-selection">
+                                <div className="texture-grid">
+                                  {['01', '02', '03'].map((texture) => (
+                                    <div
+                                      key={texture}
+                                      className={`texture-item ${this.state.textureFile === texture ? 'selected' : ''}`}
+                                      onClick={() => this.setState({ textureFile: texture })}
+                                    >
+                                      <img
+                                        src={`./texture-thumbs/${texture}.gif`}
+                                        className="texture-thumbnail"
+                                        alt={texture}
+                                      />
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                            </div>
+
+                            {this.state.isTextureMode == false && (
+                              <>
+
+                              <textarea className="text-input"
                                 rows="2"
                                 id="message"
                                 name="message"
@@ -262,9 +283,7 @@ class App extends Component {
                                 value={this.state.message}
                                 onChange={this.handleChange}
                             />
-                            </div>
                           <br></br>
-                          {/* <br></br> */}
                           <label className="color-label" htmlFor="favcolor">Colour</label>
                           <br></br>
                         <input type="color" id="favcolor" className="colorPicker" name="color" onChange={this.handleChange} value={this.state.color}></input>
@@ -284,7 +303,8 @@ class App extends Component {
                         <label className="slider-label" htmlFor="spacing">Letter spacing</label>
                         <br></br>
                         <input type="range" min="-5" max="8" step="1"id="spacing" className="slider" name="spacing" onChange={this.handleChange} value={this.state.spacing}></input>
-                        
+                        </>
+                      )}
                         
                     
                         <div className="col-7"></div>
@@ -295,7 +315,7 @@ class App extends Component {
                             onClick={this.handleSubmit}
                             type="submit"
                             disabled={this.state.loading}>
-                              Post message
+                              {this.state.isTextureMode ? 'Post Texture' : 'Post Message'}
                         </button>
                         </div>
                   
