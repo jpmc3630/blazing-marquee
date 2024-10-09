@@ -157,7 +157,8 @@ class App extends Component {
               colorOutline: this.hexTorgb(this.state.colorOutline),
               bgColor: this.hexTorgb(this.state.bgColor),
               textureSpeed: this.state.transformedTextureSpeed,
-              spacing: this.state.spacing
+              spacing: this.state.spacing,
+              brightness: this.state.brightness
             });
             this.setState({ loading: true });
           } else {
