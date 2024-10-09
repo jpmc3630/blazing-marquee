@@ -278,7 +278,6 @@ class App extends Component {
   </div>
 )}
 
-// 231, 208, 205, 200, 178, 150, 149
 
                             </div>
 
