@@ -45,13 +45,18 @@ class App extends Component {
     this.handleSpeedChange = this.handleSpeedChange.bind(this); 
   }
 
-  handleSpeedChange(event) {
-    const rawTextureSpeed = parseFloat(event.target.value);
-    // Apply exponential scaling for texture speed
-    const transformedTextureSpeed = this.transformSpeedValue(rawTextureSpeed);
-    this.setState({ rawTextureSpeed, transformedTextureSpeed });
-  }
-  
+// Custom handler for horizontal slider with flipped values
+handleSpeedChange = (event) => {
+  const rawValue = parseInt(event.target.value, 10);  // Get the raw slider value
+  const transformedValue = 3001 - rawValue;  // Flip the value using subtraction
+
+  this.setState({
+    rawTextureSpeed: rawValue, // Store the actual slider value
+    transformedTextureSpeed: transformedValue,  // Store the flipped value
+  });
+};
+
+
   // Transformation function for texture speed
   transformSpeedValue(rawTextureSpeed) {
     if (rawTextureSpeed < 0) {
@@ -64,6 +69,17 @@ class App extends Component {
     return -1; // Default for the middle value (rawSpeed = 0)
   }
   
+  // Custom handler for inverted speed change
+handleInvertedSpeedChange = (event) => {
+  const rawValue = parseInt(event.target.value, 10);  // Get the slider value as an integer
+  const transformedValue = 3001 - rawValue;  // Reverse the value to match intended behavior
+
+  this.setState({
+    rawTextureSpeed: rawValue,
+    transformedTextureSpeed: transformedValue,  // Store the transformed value
+  });
+};
+
 
   componentDidMount() {
     document.addEventListener('visibilitychange', this.checkForUpdates)
@@ -383,8 +399,8 @@ class App extends Component {
     <button
       onClick={() => this.setState(prevState => ({
         customSpeedEnabled: !prevState.customSpeedEnabled, // Toggle the custom speed state
-        rawTextureSpeed: prevState.customSpeedEnabled ? 0 : 1, // Reset speed to default when toggling
-        transformedTextureSpeed: prevState.customSpeedEnabled ? -1 : 1 // Default to -1 if disabled, 1 if enabled
+        rawTextureSpeed: prevState.customSpeedEnabled ? 1 : 3000, // Set default to 1 or 3000 depending on toggle state
+        transformedTextureSpeed: prevState.customSpeedEnabled ? -1 : 1 // Reset the transformed speed based on toggle state
       }))}
     >
       {this.state.customSpeedEnabled ? 'Disable Custom Speed' : 'Enable Custom Speed'}
@@ -398,14 +414,15 @@ class App extends Component {
         type="range"
         id="textureSpeed"
         name="textureSpeed"
-        min="1" // Minimum value (top of the slider)
-        max="3000" // Maximum value (bottom of the slider)
+        min="1" // Keep the min value as 1
+        max="3000" // Keep the max value as 3000
         step="1"
-        value={3001 - this.state.rawTextureSpeed} // Invert value for display
-        onChange={this.handleInvertedSpeedChange} // Custom handler for inverted speed
-        className="slider inverted-slider" // Apply custom CSS for visual inversion
+        value={this.state.rawTextureSpeed} // Use the raw value for the slider itself
+        onChange={this.handleSpeedChange} // Custom handler for texture speed
+        className="slider"
       />
-      <div className="slider-value">Speed: {this.state.transformedTextureSpeed.toFixed(0)}</div>
+      {/* Display the inverted value */}
+      <div className="slider-value">Speed: {3001 - this.state.rawTextureSpeed}</div>
     </>
   )}
 </div>
