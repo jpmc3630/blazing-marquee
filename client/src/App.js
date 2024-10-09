@@ -262,9 +262,9 @@ class App extends Component {
                                     onClick={() => this.setState({ textureFile: texture })}
                                   >
                                     <img
-                                      src={`./texture-thumbs/gif${texture}.gif`}
+                                      src={`./texture-thumbs/trippy${texture}.gif`}
                                       className="texture-thumbnail"
-                                      alt={`gif${texture}`}
+                                      alt={`trippy${texture}`}
                                     />
                                   </div>
                                 ))}
