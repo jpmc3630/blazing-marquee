@@ -203,7 +203,7 @@ class App extends Component {
                           <LoadingOverlay
                             active={this.state.loading}
                             spinner
-                            text='Posting message now... :D'
+                            text={this.state.isTextureMode ? 'Posting message now :D' : 'Posting texture!'}
                             styles={{
                               overlay: (base) => ({
                                 ...base,
