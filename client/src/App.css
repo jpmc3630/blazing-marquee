@@ -123,30 +123,41 @@
   padding-right: 10px;
 }
 
+/* Container for the texture selection */
 .texture-selection {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center; /* Center align the texture grid */
   width: 100%;
   margin-top: 20px;
 }
 
+/* Grid container for the texture items */
 .texture-grid {
-  width: 100%; /* Full width container */
   display: flex;
-  flex-direction: column; /* Make each image a block */
-  gap: 10px; /* Add spacing between items */
+  flex-direction: column; /* Arrange items in a column */
+  gap: 20px; /* Space between each image */
+  width: 100%; /* Full width of the container */
 }
 
+/* Each texture item */
 .texture-item {
-  width: 100%; /* Full width of the container */
+  width: 100%; /* Full width of the parent container */
   cursor: pointer;
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
 }
 
+/* Highlight selected item */
 .texture-item.selected {
-  border-color: #00ff00;
+  border-color: #00ff00; /* Green border for selected texture */
+}
+
+/* Image styling to maintain aspect ratio and full width */
+.texture-thumbnail {
+  display: block; /* Make the image a block element */
+  width: 100%; /* Full width of the parent container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Scale the image to fit within its container */
 }
 
 /* Container for the tabs */
