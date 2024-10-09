@@ -31,7 +31,9 @@ class App extends Component {
       statusMessage: 'Searching for screen...',
       answers: [],
       message: '',
-      loading: false
+      loading: false,
+      isTextureMode: false, // New state to track if in texture mode
+      textureFile: null // New state to store the selected texture file
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -114,34 +116,54 @@ class App extends Component {
 
   
   handleSubmit(event) {
-      event.preventDefault()
-      if(this.state.conToServer) {
-        if (this.state.message === 'rugoingtothemall') {
-          socket.emit('hardreboot')
-        } else {
-          if(this.state.message.trim() !== '') {
-          socket.emit('submitMessage', {
-            // roomName: this.state.roomToJoin, 
-            message: this.state.message,
-            color: this.hexTorgb(this.state.color),
-            colorOutline: this.hexTorgb(this.state.colorOutline),
-            bgColor: this.hexTorgb(this.state.bgColor),
-            speed: this.state.speed,
-            spacing: this.state.spacing
-          });
-          this.setState({loading: true })
-          setTimeout(() => {
-            this.setState({loading:false})
-          }, 1600);
-          // alert('Msg has been posted <3')
-        } else {
-          alert('Plz enter a msg to post ;D')
-        }
-      }
+    event.preventDefault();
+    if (this.state.conToServer) {
+      if (this.state.message === 'rugoingtothemall') {
+        socket.emit('hardreboot');
       } else {
-        alert('Ph. reception is not so good o.O')
+        // Determine if we are sending text or a texture
+        if (this.state.isTextureMode) {
+          // Texture mode: send textureFile only if it's selected
+          if (this.state.textureFile) {
+            socket.emit('submitMessage', {
+              message: '', // Empty message when sending texture
+              textureFile: this.state.textureFile,
+              color: this.hexTorgb(this.state.color),
+              colorOutline: this.hexTorgb(this.state.colorOutline),
+              bgColor: this.hexTorgb(this.state.bgColor),
+              speed: this.state.speed,
+              spacing: this.state.spacing
+            });
+            this.setState({ loading: true });
+          } else {
+            alert('Please select a texture to play.');
+          }
+        } else {
+          // Text mode: send message
+          if (this.state.message.trim() !== '') {
+            socket.emit('submitMessage', {
+              message: this.state.message,
+              textureFile: null, // No texture when sending text
+              color: this.hexTorgb(this.state.color),
+              colorOutline: this.hexTorgb(this.state.colorOutline),
+              bgColor: this.hexTorgb(this.state.bgColor),
+              speed: this.state.speed,
+              spacing: this.state.spacing
+            });
+            this.setState({ loading: true });
+          } else {
+            alert('Please enter a message to post.');
+          }
+        }
+        setTimeout(() => {
+          this.setState({ loading: false });
+        }, 1600);
       }
+    } else {
+      alert('Ph. reception is not so good o.O');
+    }
   }
+  
 
   handleAnswer(event) {
     event.preventDefault()
@@ -200,12 +222,38 @@ class App extends Component {
                    : null }
 
                 <div className="heading-div">
-                  <img src="./flask.png" className="flask" alt=""></img><h3 className="heading-label"> ~ get fucked ya bozo ~ </h3> <img className="flask" src="./flask.png" alt=""></img>
+                  <img src="./flask.png" className="flask" alt=""></img><h3 className="heading-label"> ~ trap butt ~ </h3> <img className="flask" src="./flask.png" alt=""></img>
                 </div>
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
                             <br></br>
                           
+                                {/* Add texture selection UI here */}
+                                {this.state.isTextureMode && (
+                                  <div className="texture-selection">
+                                    <h3>Select a Texture</h3>
+                                    <div className="texture-grid">
+                                      {['/textures/texture1.gif', '/textures/texture2.gif', '/textures/texture3.gif'].map((texture) => (
+                                        <img
+                                          key={texture}
+                                          src={texture}
+                                          className={`texture-thumbnail ${this.state.textureFile === texture ? 'selected' : ''}`}
+                                          alt="texture"
+                                          onClick={() => this.setState({ textureFile: texture })}
+                                        />
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+
+                          {/*  message input field */}
                             <div className="text-div">
+                            <button
+                              className="btn synthToolButton"
+                              onClick={() => this.setState({ isTextureMode: !this.state.isTextureMode })}
+                            >
+                              {this.state.isTextureMode ? 'Switch to Text Mode' : 'Play Textures'}
+                            </button>
+
                             <textarea className="text-input"
                                 rows="2"
                                 id="message"

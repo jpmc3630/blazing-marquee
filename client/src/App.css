@@ -122,3 +122,24 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.texture-selection {
+  margin: 20px 0;
+}
+
+.texture-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.texture-thumbnail {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.texture-thumbnail.selected {
+  border-color: #00ff00; /* Green border for selected texture */
+}
