@@ -275,65 +275,7 @@ class App extends Component {
                           </div>
                         </div>
 
-                        {/* New Sliders Section: Brightness and Speed */}
-                        {this.state.isTextureMode && (
-  <div className="slider-container">
-    {/* Slider for Brightness in Texture Mode */}
-    <div className="slider-column">
-      <label className="slider-label" htmlFor="brightness">Brightness</label>
-      <input
-        type="range"
-        id="brightness"
-        name="brightness"
-        min="0"
-        max="100"
-        step="1"
-        value={this.state.brightness}
-        onChange={this.handleChange}
-        className="slider"
-      />
-    </div>
-    {/* Slider for Texture Speed */}
-    <div className="slider-column">
-  <label className="slider-label" htmlFor="textureSpeed">Texture Speed</label>
 
-  {/* Toggle button to enable/disable custom speed */}
-  <div>
-    <button
-      onClick={() => this.setState(prevState => ({
-        customSpeedEnabled: !prevState.customSpeedEnabled, // Toggle the custom speed state
-        rawTextureSpeed: prevState.customSpeedEnabled ? 0 : 1, // Reset speed to default when toggling
-        transformedTextureSpeed: prevState.customSpeedEnabled ? -1 : 1 // Default to -1 if disabled, 1 if enabled
-      }))}
-    >
-      {this.state.customSpeedEnabled ? 'Disable Custom Speed' : 'Enable Custom Speed'}
-    </button>
-  </div>
-
-  {/* Show slider only when custom speed is enabled */}
-  {this.state.customSpeedEnabled && (
-    <>
-      <input
-        type="range"
-        id="textureSpeed"
-        name="textureSpeed"
-        min="1" // Start from 1 for custom speed
-        max="3000"
-        step="1"
-        value={this.state.transformedTextureSpeed} // Use transformed value for slider input
-        onChange={this.handleSpeedChange} // Custom handler for texture speed
-        className="slider"
-      />
-      <div className="slider-value">Speed: {this.state.transformedTextureSpeed.toFixed(0)}</div>
-    </>
-  )}
-</div>
-  </div>
-)}
-
-
-
-                          {/* <br></br>                     */}
                           {/* Add texture selection UI here */}
                           {this.state.isTextureMode && (
   <div className="texture-selection">
@@ -361,6 +303,8 @@ class App extends Component {
     </div>
   </div>
 )}
+
+
 
 
                             </div>
@@ -410,6 +354,66 @@ class App extends Component {
                             disabled={this.state.loading}>
                               {this.state.isTextureMode ? 'Post Texture' : 'Post Message'}
                         </button>
+
+                        <br></br><br></br>
+                        {/* New Sliders Section: Brightness and Speed */}
+                        {this.state.isTextureMode && (
+  <div className="slider-container">
+    {/* Slider for Brightness in Texture Mode */}
+    <div className="slider-column">
+      <label className="slider-label" htmlFor="brightness">Brightness</label>
+      <input
+        type="range"
+        id="brightness"
+        name="brightness"
+        min="0"
+        max="100"
+        step="1"
+        value={this.state.brightness}
+        onChange={this.handleChange}
+        className="slider"
+      />
+    </div>
+    {/* Slider for Texture Speed */}
+    <div className="slider-column">
+  <label className="slider-label" htmlFor="textureSpeed">Texture Speed</label>
+
+  {/* Toggle button to enable/disable custom speed */}
+  <div>
+    <button
+      onClick={() => this.setState(prevState => ({
+        customSpeedEnabled: !prevState.customSpeedEnabled, // Toggle the custom speed state
+        rawTextureSpeed: prevState.customSpeedEnabled ? 0 : 1, // Reset speed to default when toggling
+        transformedTextureSpeed: prevState.customSpeedEnabled ? -1 : 1 // Default to -1 if disabled, 1 if enabled
+      }))}
+    >
+      {this.state.customSpeedEnabled ? 'Disable Custom Speed' : 'Enable Custom Speed'}
+    </button>
+  </div>
+
+  {/* Show slider only when custom speed is enabled */}
+  {this.state.customSpeedEnabled && (
+    <>
+      <input
+        type="range"
+        id="textureSpeed"
+        name="textureSpeed"
+        min="1" // Minimum value (top of the slider)
+        max="3000" // Maximum value (bottom of the slider)
+        step="1"
+        value={3001 - this.state.rawTextureSpeed} // Invert value for display
+        onChange={this.handleInvertedSpeedChange} // Custom handler for inverted speed
+        className="slider inverted-slider" // Apply custom CSS for visual inversion
+      />
+      <div className="slider-value">Speed: {this.state.transformedTextureSpeed.toFixed(0)}</div>
+    </>
+  )}
+</div>
+
+  </div>
+)}
+
+
                         </div>
                   
                

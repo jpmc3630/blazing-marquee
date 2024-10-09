@@ -222,3 +222,9 @@
   height: auto; /* Maintain aspect ratio */
   object-fit: contain; /* Scale image to fit within the box */
 }
+
+/* Apply visual inversion to the slider */
+.inverted-slider {
+  transform: rotate(180deg); /* Flip the slider upside down */
+  -webkit-appearance: slider-vertical; /* Optional: Make it vertical */
+}
