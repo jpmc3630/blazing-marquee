@@ -237,7 +237,7 @@ class App extends Component {
                             className={`tab ${!this.state.isTextureMode ? 'active-tab' : ''}`}
                             onClick={() => this.setState({ isTextureMode: false })}
                           >
-                            Message Mode
+                            Messages
                           </div>
 
                           {/* Tab for Texture Mode */}
@@ -245,7 +245,7 @@ class App extends Component {
                             className={`tab ${this.state.isTextureMode ? 'active-tab' : ''}`}
                             onClick={() => this.setState({ isTextureMode: true })}
                           >
-                            Texture Mode
+                            Textures
                           </div>
                         </div>
 
