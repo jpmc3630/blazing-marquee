@@ -252,25 +252,29 @@ class App extends Component {
                           <br></br>                    
                           {/* Add texture selection UI here */}
                           {this.state.isTextureMode && (
-                            <div className="texture-selection">
-                              <div className="texture-grid">
-                                {/* Generate an array of numbers from 1 to 126 */}
-                                {Array.from({ length: 126 }, (_, i) => (i + 1).toString()).map((texture) => (
-                                  <div
-                                    key={texture}
-                                    className={`texture-item ${this.state.textureFile === texture ? 'selected' : ''}`}
-                                    onClick={() => this.setState({ textureFile: 'trippy' + texture })}
-                                  >
-                                    <img
-                                      src={`./texture-thumbs/trippy${texture}.gif`}
-                                      className="texture-thumbnail"
-                                      alt={`trippy${texture}`}
-                                    />
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
+  <div className="texture-selection">
+    {/* Scrollable div that takes up 60% of the viewport height */}
+    <div className="scrollable-texture-grid">
+      {/* Grid that contains all texture items */}
+      <div className="texture-grid">
+        {/* Generate an array of numbers from 1 to 126 */}
+        {Array.from({ length: 258 }, (_, i) => (i + 1).toString()).reverse().map((texture) => (
+          <div
+            key={texture}
+            className={`texture-item ${this.state.textureFile === 'trippy' + texture ? 'selected' : ''}`}
+            onClick={() => this.setState({ textureFile: 'trippy' + texture })}
+          >
+            <img
+              src={`./texture-thumbs/trippy${texture}.gif`}
+              className="texture-thumbnail"
+              alt={`trippy${texture}`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
 
                             </div>
 
