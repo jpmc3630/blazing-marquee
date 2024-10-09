@@ -164,15 +164,38 @@
   margin-top: 20px;
 }
 
+/* Scrollable container styling */
 .scrollable-texture-grid {
   width: 100%;
   height: 100%; /* Fill the entire 60% height */
   overflow-y: auto; /* Enable vertical scrolling */
   border: 1px solid #ccc; /* Optional: Add border for visual separation */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+  scrollbar-width: thin; /* Firefox: Make scrollbar thinner */
+  scrollbar-color: #888 #f1f1f1; /* Firefox: Set thumb and track color */
 }
 
-/* Updated .texture-grid to use a single column layout */
+/* Custom scrollbar styles for Chrome, Safari, and Edge */
+.scrollable-texture-grid::-webkit-scrollbar {
+  width: 16px; /* Increase width of the scrollbar */
+}
+
+.scrollable-texture-grid::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light grey background for the track */
+  border-radius: 10px;
+}
+
+.scrollable-texture-grid::-webkit-scrollbar-thumb {
+  background: #888; /* Darker grey color for the thumb */
+  border-radius: 10px;
+  border: 3px solid #f1f1f1; /* Adds padding around the thumb */
+}
+
+.scrollable-texture-grid::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker color on hover */
+}
+
+/* Make the texture grid take up the entire scrollable container */
 .texture-grid {
   display: flex;
   flex-direction: column; /* Arrange items in a single column */
@@ -181,7 +204,7 @@
   padding: 10px;
 }
 
-/* Each texture item should be full-width */
+/* Ensure each texture item is full-width */
 .texture-item {
   width: 90%; /* Adjust width to take up most of the container */
   cursor: pointer;
