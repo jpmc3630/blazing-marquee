@@ -249,7 +249,7 @@ class App extends Component {
                           </div>
                         </div>
 
-                          <br></br>                    
+                          {/* <br></br>                     */}
                           {/* Add texture selection UI here */}
                           {this.state.isTextureMode && (
   <div className="texture-selection">
