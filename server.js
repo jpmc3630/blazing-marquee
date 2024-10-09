@@ -65,16 +65,22 @@ io.sockets.on('connection', function(socket) {
   });
 
   // join room, for joiners
-  socket.on('submitMessage', function({ message, color, colorOutline, bgColor, speed, spacing, textureFile }) {
+  socket.on('submitMessage', function ({ message, color, colorOutline, bgColor, speed, spacing, textureFile, textureSpeed, brightness }) {
     
     // console.log('client join room message recieved:' + roomName)
-    console.log('message: ' + message)
-    console.log('color: ' + color)
-
+    console.log('Incoming submission:');
+    console.log(`Message: ${message}`);
+    console.log(`Color: ${color}`);
+    console.log(`Texture File: ${textureFile}`);
+    if (textureFile) {
+      console.log(`Texture Speed: ${textureSpeed}`);
+      console.log(`Brightness: ${brightness}`);
+    }
+  
     let data;
     if (textureFile) {
       console.log(`Displaying texture: ${textureFile}`);
-      data = [message, color, colorOutline, bgColor, speed, spacing, textureFile];
+      data = [message, color, colorOutline, bgColor, textureSpeed, spacing, brightness, textureFile];
     } else {
       console.log(`Displaying text message: ${message}`);
       data = [message, color, colorOutline, bgColor, speed, spacing];

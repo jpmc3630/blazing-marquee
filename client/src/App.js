@@ -24,6 +24,10 @@ class App extends Component {
       bgColor: '#000000',
       speed: "1.3",
       spacing: "1",
+      textureSpeed: -1,            // Default speed value for texture animations
+      rawTextureSpeed: 0,          // Raw value of the texture speed slider (range -1 to 1)
+      transformedTextureSpeed: -1, // Transformed texture speed value based on rawTextureSpeed
+      brightness: 100,             // Default brightness level for texture
       statusArr: [],
       conToHost: false,
       conToServer: false,
@@ -38,7 +42,28 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleAnswer = this.handleAnswer.bind(this)
+    this.handleSpeedChange = this.handleSpeedChange.bind(this); 
   }
+
+  handleSpeedChange(event) {
+    const rawTextureSpeed = parseFloat(event.target.value);
+    // Apply exponential scaling for texture speed
+    const transformedTextureSpeed = this.transformSpeedValue(rawTextureSpeed);
+    this.setState({ rawTextureSpeed, transformedTextureSpeed });
+  }
+  
+  // Transformation function for texture speed
+  transformSpeedValue(rawTextureSpeed) {
+    if (rawTextureSpeed < 0) {
+      // Map -1 to 0 to 3000 to -1 (exponential decrease)
+      return -1 * Math.exp(-3 * rawTextureSpeed); // Returns a value between 3000 and -1
+    } else if (rawTextureSpeed > 0) {
+      // Map 0 to 1 to -1 to 1 (exponential increase)
+      return Math.exp(3 * rawTextureSpeed) - 1; // Returns a value between -1 and 1
+    }
+    return -1; // Default for the middle value (rawSpeed = 0)
+  }
+  
 
   componentDidMount() {
     document.addEventListener('visibilitychange', this.checkForUpdates)
@@ -131,7 +156,7 @@ class App extends Component {
               color: this.hexTorgb(this.state.color),
               colorOutline: this.hexTorgb(this.state.colorOutline),
               bgColor: this.hexTorgb(this.state.bgColor),
-              speed: this.state.speed,
+              textureSpeed: this.state.transformedTextureSpeed,
               spacing: this.state.spacing
             });
             this.setState({ loading: true });
@@ -250,8 +275,9 @@ class App extends Component {
                         </div>
 
                         {/* New Sliders Section: Brightness and Speed */}
-{this.state.isTextureMode && (
+                        {this.state.isTextureMode && (
   <div className="slider-container">
+    {/* Slider for Brightness in Texture Mode */}
     <div className="slider-column">
       <label className="slider-label" htmlFor="brightness">Brightness</label>
       <input
@@ -266,22 +292,25 @@ class App extends Component {
         className="slider"
       />
     </div>
+    {/* Slider for Texture Speed */}
     <div className="slider-column">
-      <label className="slider-label" htmlFor="speed">Speed</label>
+      <label className="slider-label" htmlFor="textureSpeed">Texture Speed</label>
       <input
         type="range"
-        id="speed"
-        name="speed"
-        min="0.1"
-        max="5"
-        step="0.1"
-        value={this.state.speed}
-        onChange={this.handleChange}
+        id="textureSpeed"
+        name="textureSpeed"
+        min="-1"
+        max="1"
+        step="0.01"
+        value={this.state.rawTextureSpeed} // Use raw value for slider input
+        onChange={this.handleSpeedChange} // Custom handler for texture speed
         className="slider"
       />
+      <div className="slider-value">Speed: {this.state.transformedTextureSpeed.toFixed(2)}</div>
     </div>
   </div>
 )}
+
 
 
                           {/* <br></br>                     */}
