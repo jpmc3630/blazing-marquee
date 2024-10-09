@@ -127,7 +127,7 @@
 .tab-container {
   display: flex;
   justify-content: center; /* Center-align the tabs */
-  margin: 20px 0; /* Add space around the tabs */
+  margin-bottom: 20px; /* Add space around the tabs */
 }
 
 /* Each tab element */

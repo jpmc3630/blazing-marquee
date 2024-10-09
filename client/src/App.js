@@ -221,9 +221,9 @@ class App extends Component {
                           </LoadingOverlay>    
                    : null }
 
-                <div className="heading-div">
+                {/* <div className="heading-div">
                   <img src="./flask.png" className="flask" alt=""></img><h3 className="heading-label"> ~ trap butt ~ </h3> <img className="flask" src="./flask.png" alt=""></img>
-                </div>
+                </div> */}
                             <label className="status-label" htmlFor="username">{this.state.statusMessage}</label>
                             <br></br>
 
@@ -248,6 +248,41 @@ class App extends Component {
                             Textures
                           </div>
                         </div>
+
+                        {/* New Sliders Section: Brightness and Speed */}
+{this.state.isTextureMode && (
+  <div className="slider-container">
+    <div className="slider-column">
+      <label className="slider-label" htmlFor="brightness">Brightness</label>
+      <input
+        type="range"
+        id="brightness"
+        name="brightness"
+        min="0"
+        max="100"
+        step="1"
+        value={this.state.brightness}
+        onChange={this.handleChange}
+        className="slider"
+      />
+    </div>
+    <div className="slider-column">
+      <label className="slider-label" htmlFor="speed">Speed</label>
+      <input
+        type="range"
+        id="speed"
+        name="speed"
+        min="0.1"
+        max="5"
+        step="0.1"
+        value={this.state.speed}
+        onChange={this.handleChange}
+        className="slider"
+      />
+    </div>
+  </div>
+)}
+
 
                           {/* <br></br>                     */}
                           {/* Add texture selection UI here */}
