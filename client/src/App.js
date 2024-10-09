@@ -259,7 +259,7 @@ class App extends Component {
                                   <div
                                     key={texture}
                                     className={`texture-item ${this.state.textureFile === texture ? 'selected' : ''}`}
-                                    onClick={() => this.setState({ textureFile: texture })}
+                                    onClick={() => this.setState({ textureFile: 'trippy' + texture })}
                                   >
                                     <img
                                       src={`./texture-thumbs/trippy${texture}.gif`}
