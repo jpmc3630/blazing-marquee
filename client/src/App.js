@@ -392,37 +392,41 @@ handleInvertedSpeedChange = (event) => {
     </div>
     {/* Slider for Texture Speed */}
     <div className="slider-column">
-  <label className="slider-label" htmlFor="textureSpeed">Texture Speed</label>
+      <br></br>
+  <label className="slider-label" htmlFor="textureSpeed">Clip speed</label>
 
   {/* Toggle button to enable/disable custom speed */}
   <div>
     <button
+    class="btn synthToolButton"
       onClick={() => this.setState(prevState => ({
         customSpeedEnabled: !prevState.customSpeedEnabled, // Toggle the custom speed state
         rawTextureSpeed: prevState.customSpeedEnabled ? 1 : 3000, // Set default to 1 or 3000 depending on toggle state
         transformedTextureSpeed: prevState.customSpeedEnabled ? -1 : 1 // Reset the transformed speed based on toggle state
       }))}
     >
-      {this.state.customSpeedEnabled ? 'Disable Custom Speed' : 'Enable Custom Speed'}
+      {this.state.customSpeedEnabled ? 'Revert to default frame rate' : 'Enable custom frame rate'}
     </button>
   </div>
 
   {/* Show slider only when custom speed is enabled */}
   {this.state.customSpeedEnabled && (
     <>
+    
       <input
         type="range"
         id="textureSpeed"
         name="textureSpeed"
-        min="1" // Keep the min value as 1
+        min="2" // Keep the min value as 1
         max="3000" // Keep the max value as 3000
         step="1"
         value={this.state.rawTextureSpeed} // Use the raw value for the slider itself
         onChange={this.handleSpeedChange} // Custom handler for texture speed
         className="slider"
+        style={{ paddingTop: '30px' }} 
       />
       {/* Display the inverted value */}
-      <div className="slider-value">Speed: {3001 - this.state.rawTextureSpeed}</div>
+      <div className="slider-value" style={{ paddingBottom: '50px' }}>Frame rate: {(1000 / (3001 - this.state.rawTextureSpeed)).toFixed(1)} frames per second</div>
     </>
   )}
 </div>
