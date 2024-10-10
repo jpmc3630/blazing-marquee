@@ -42,7 +42,9 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleAnswer = this.handleAnswer.bind(this)
-    this.handleSpeedChange = this.handleSpeedChange.bind(this); 
+    this.handleSpeedChange = this.handleSpeedChange.bind(this);
+    // Create a reference to the bottom of the page
+    this.bottomRef = React.createRef();
   }
 
 // Custom handler for horizontal slider with flipped values
@@ -393,7 +395,7 @@ handleInvertedSpeedChange = (event) => {
     {/* Slider for Texture Speed */}
     <div className="slider-column">
       <br></br>
-  <label className="slider-label" htmlFor="textureSpeed">Clip speed</label>
+  <label className="slider-label" htmlFor="textureSpeed">Speed</label>
 
   {/* Toggle button to enable/disable custom speed */}
   <div>
@@ -403,7 +405,13 @@ handleInvertedSpeedChange = (event) => {
         customSpeedEnabled: !prevState.customSpeedEnabled, // Toggle the custom speed state
         rawTextureSpeed: prevState.customSpeedEnabled ? 1 : 3000, // Set default to 1 or 3000 depending on toggle state
         transformedTextureSpeed: prevState.customSpeedEnabled ? -1 : 1 // Reset the transformed speed based on toggle state
-      }))}
+      }),
+      () => {
+        // Scroll to the bottom of the page when customSpeedEnabled is true
+        if (this.state.customSpeedEnabled && this.bottomRef.current) {
+          this.bottomRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+      })}
     >
       {this.state.customSpeedEnabled ? 'Revert to default frame rate' : 'Enable custom frame rate'}
     </button>
@@ -429,6 +437,8 @@ handleInvertedSpeedChange = (event) => {
       <div className="slider-value" style={{ paddingBottom: '50px' }}>Frame rate: {(1000 / (3001 - this.state.rawTextureSpeed)).toFixed(1)} frames per second</div>
     </>
   )}
+       {/* This element is used as a reference point to scroll to */}
+       <div ref={this.bottomRef}></div>
 </div>
 
   </div>
